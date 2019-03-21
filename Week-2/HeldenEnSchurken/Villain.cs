@@ -19,47 +19,60 @@ using System.Collections.Generic;
 
 namespace HeldenEnSchurken
 {
-    public class Villain: Person,IHasStrengths
+    /// <summary>
+    /// The Villain class
+    /// </summary>
+    public class Villain : Person, IHasStrengths
     {
-        private List<Minion> minions;
-        private List<string> strengts;
-        private int evilness;
+        private readonly List<Minion> _minions;
+        private readonly List<string> _strengts;
 
-        public Villain(string name, int evilness)
+
+        /// <summary>
+        /// New Villain
+        /// </summary>
+        /// <param name="name">the nanme</param>
+        /// <param name="ev">the evilness</param>
+        public Villain(string name, int ev) : base(name, ev)
         {
-            this.name = name;
-            if (evilness > 100)
-                evilness = 50;
-            this.evilness = evilness;
-            strengts = new List<string>();
-            minions = new List<Minion>();
+            _strengts = new List<string>();
+            _minions = new List<Minion>();
         }
 
-
-        public void AddMinion(Minion m)
-        {
-            minions.Add(m);
-        }
-
-
-        public List<Minion> GetMinions()
-        {
-            return minions;
-        }
-
+        /// <summary>
+        /// Add a strength
+        /// </summary>
+        /// <param name="strength">name of strength</param>
         public void AddStrengths(string strength)
         {
-            strengts.Add(strength);
+            _strengts.Add(strength);
         }
 
+        /// <summary>
+        /// Gat all strengts
+        /// </summary>
+        /// <returns>A List of strengts</returns>
         public List<string> GetStrengths()
         {
-            return strengts;
+            return _strengts;
         }
 
-        public int getEvilness()
+        /// <summary>
+        ///  Add a Minion
+        /// </summary>
+        /// <param name="m">the minion</param>
+        public void AddMinion(Minion m)
         {
-            return evilness;
+            _minions.Add(m);
+        }
+
+        /// <summary>
+        ///  Get all minions
+        /// </summary>
+        /// <returns>A lsint of all minions</returns>
+        public List<Minion> GetMinions()
+        {
+            return _minions;
         }
     }
 }

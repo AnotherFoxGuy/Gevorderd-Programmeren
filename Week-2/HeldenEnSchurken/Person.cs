@@ -17,14 +17,45 @@
 
 namespace HeldenEnSchurken
 {
-    
+    /// <summary>
+    /// The Person class
+    /// </summary>
     public class Person
     {
-        protected string name;
+        private readonly int _evilness;
+        private string _name;
 
+        /// <summary>
+        /// Person consturctor
+        /// </summary>
+        /// <param name="n">Name</param>
+        /// <param name="evilness">evilness</param>
+        public Person(string n = "", int evilness = 55)
+        {
+            this._name = n;
+
+            if (evilness > 100 || evilness < 0)
+                evilness = 50;
+            
+            this._evilness =  evilness;
+        }
+
+        /// <summary>
+        /// Get the Name
+        /// </summary>
+        /// <returns> the name</returns>
         public string GetName()
         {
-            return name;
+            return _name;
+        }
+
+        /// <summary>
+        /// Get the evilness
+        /// </summary>
+        /// <returns>The evilness</returns>
+        public int GetEvilness()
+        {
+            return _evilness;
         }
     }
 }

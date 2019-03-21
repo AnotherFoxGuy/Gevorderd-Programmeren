@@ -24,6 +24,5 @@ namespace HeldenEnSchurken
         void AddStrengths(string strength);
 
         List<string> GetStrengths();
-
     }
 }

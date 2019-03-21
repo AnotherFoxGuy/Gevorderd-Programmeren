@@ -17,18 +17,19 @@
 
 namespace HeldenEnSchurken
 {
-    public class Minion: Person
+	
+    public class Minion : Person
     {
-        private string weakness;
-
-        public string GetWeakness()
-        {
-            return weakness;
-        }
+        private readonly string _weakness;
 
         public Minion(string weakness)
         {
-            this.weakness = weakness;
+            this._weakness = weakness;
+        }
+
+        public string GetWeakness()
+        {
+            return _weakness;
         }
     }
 }

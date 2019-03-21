@@ -19,44 +19,42 @@ using System.Collections.Generic;
 
 namespace HeldenEnSchurken
 {
-    public class Hero: Person, IHasStrengths
+    public class Hero : Person, IHasStrengths
     {
-        private Villain archnemesis;
+        private Person _sidekick;
+        private readonly Villain _archnemesis;
 
-        private List<string> strengts;
+        private readonly List<string> _strengts;
 
-        private Person sidekick;
-
-        public Hero(string name, Villain archnemesis)
+        public Hero(string name, Villain archnemesis) : base(name)
         {
-            this.name = name;
-            this.archnemesis = archnemesis;
-            this.strengts = new List<string>();
-        }
-
-        public Villain GetArchnemesis()
-        {
-            return archnemesis;
+            this._archnemesis = archnemesis;
+            _strengts = new List<string>();
         }
 
         public void AddStrengths(string strength)
         {
-            strengts.Add(strength);
+            _strengts.Add(strength);
         }
 
         public List<string> GetStrengths()
         {
-            return strengts;
+            return _strengts;
+        }
+
+        public Villain GetArchnemesis()
+        {
+            return _archnemesis;
         }
 
         public void UpdateSidekick(Person s)
         {
-            sidekick = s;
+            _sidekick = s;
         }
 
         public Person GetSidekick()
         {
-            return sidekick;
+            return _sidekick;
         }
     }
 }
